@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+.env.*
+venv/
+.venv/
+*.egg-info/
+
+# Modelos de IA (pueden pesar varios GB)
+backend/model/
+*.bin
+*.pt
+*.safetensors
+
+# Node
+node_modules/
+dist/
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
