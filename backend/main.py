@@ -1,17 +1,17 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from transformers import AutoModelForCausalLM, AutoTokenizer
-import torch
+from fastapi import FastAPI # Framework web para crear la API del backend
+from fastapi.middleware.cors import CORSMiddleware # Middleware para manejar CORS y permitir que React se comunique con el backend
+from pydantic import BaseModel # Validador de datos para definir el esquema del mensaje entrante en la API
+from transformers import AutoModelForCausalLM, AutoTokenizer # Para cargar el modelo de lenguaje y su tokenizer, en este caso DialoGPT de Microsoft
+import torch # Para manejar tensores y operaciones relacionadas con el modelo de lenguaje
 
-app = FastAPI()
+app = FastAPI() # Crear una instancia de la aplicación FastAPI
 
 # CORS para que React pueda hablar con el backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=["http://localhost:5173"], # Permitir solo el origen de desarrollo de React
+    allow_methods=["*"], # Permitir todos los métodos HTTP (GET, POST, DELETE, etc.)
+    allow_headers=["*"], # Permitir todos los encabezados HTTP (Content-Type, Authorization, etc.)
 )
 
 # Cargar modelo y tokenizer al iniciar el servidor
@@ -23,7 +23,7 @@ print("Modelo listo.")
 # Historial de conversación (en memoria)
 chat_history_ids = None
 
-# Esquema del mensaje entrante
+# Contrato de datos validado con pydantic
 class Message(BaseModel):
     text: str
 
@@ -42,7 +42,7 @@ def chat(message: Message):
         [chat_history_ids, input_ids], dim=-1
     ) if chat_history_ids is not None else input_ids
 
-    # Generar respuesta
+    # Generar respuesta del modelo
     chat_history_ids = model.generate(
         bot_input_ids,
         max_length=1000,
