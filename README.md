@@ -20,7 +20,7 @@ A fullstack AI-powered chat simulator built with a custom-trained language model
 chatbot-simulator/
 ├── backend/         # API + modelo de IA (Python + FastAPI)
 ├── backend/         # Documentation App Project (Screenshots, Architecture, API Doc)
-├── frontend/        # UI del chat (React + Vite)
+└── frontend/        # UI del chat (React + Vite)
 ```
 
 ---
