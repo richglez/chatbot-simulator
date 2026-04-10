@@ -74,7 +74,7 @@ export default function App() {
     await fetch("http://localhost:8000/chat", {
       method: "DELETE",
     });
-    setMessages([{ role: "bot", text: "Hi! How can I help you today?" }]);
+    setMessages([{ role: "bot", text: "Hi! How can I help you today?", time: new Date() }]);
   };
 
   return (
@@ -99,7 +99,7 @@ export default function App() {
           </button>
         </div>
         {/* Message Container*/}
-        <div className="flex-1 space-y-4 overflow-y-auto px-5 py-4">
+        <div className="custom-scroll flex-1 space-y-4 overflow-y-auto px-5 py-4">
           {messages.map((msg, i) => (
             <div
               key={i}
