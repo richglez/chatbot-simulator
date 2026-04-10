@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 export default function App() {
   // Esqueleto de mensajes
   const [messages, setMessages] = useState([
-    { role: "bot", text: "Hi! How can I help you today?" },
+    { role: "bot", text: "Hi! How can I help you today?", time: new Date() },
   ]);
 
   // Estados
@@ -28,7 +28,7 @@ export default function App() {
     }
 
     // Crear mensaje del usuario
-    const userMessage = { role: "user", text: promptInput };
+    const userMessage = { role: "user", text: promptInput, time: new Date() };
     setMessages((prev) => [...prev, userMessage]);
     setPromptInput("");
     setIsTyping(true);
@@ -40,13 +40,21 @@ export default function App() {
         body: JSON.stringify({ text: promptInput }),
       });
       const data = await res.json();
-      setMessages((prev) => [...prev, { role: "bot", text: data.response }]);
+      // Respuesta del bot
+      setMessages((prev) => [
+        ...prev,
+        { role: "bot", text: data.response, time: new Date() },
+      ]);
     } catch (error) {
       console.log(`[ERROR], Se ha producido un error: ${error}`);
 
       setMessages((prev) => [
         ...prev,
-        { role: "bot", text: "Error connecting to the server." },
+        {
+          role: "bot",
+          text: "Error connecting to the server.",
+          time: new Date(),
+        },
       ]);
     } finally {
       setIsTyping(false); // el bot ya termino de tipiar
@@ -97,14 +105,27 @@ export default function App() {
               key={i}
               className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
             >
+              {/* Wrapper columna: burbuja + timestamp */}
               <div
-                className={`max-w-[75%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
-                  msg.role === "user"
-                    ? "rounded-br-sm bg-white text-neutral-900"
-                    : "rounded-bl-sm bg-neutral-800 text-neutral-100"
-                }`}
+                className={`flex max-w-[75%] flex-col ${msg.role === "user" ? "items-end" : "items-start"}`}
               >
-                {msg.text}
+                <div
+                  className={`rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
+                    msg.role === "user"
+                      ? "rounded-br-sm bg-white text-neutral-900"
+                      : "rounded-bl-sm bg-neutral-800 text-neutral-100"
+                  }`}
+                >
+                  {msg.text}
+                </div>
+
+                {/* Timestamp */}
+                <p className="mt-1 text-xs text-neutral-600">
+                  {msg.time.toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                </p>
               </div>
             </div>
           ))}
@@ -112,6 +133,7 @@ export default function App() {
             // Typing Wrapper
             <div className="flex justify-start">
               <div className="flex gap-1 rounded-2xl rounded-bl-sm bg-neutral-800 px-4 py-3">
+                {/* Dots Typing... */}
                 <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-neutral-400 [animation-delay:0ms]"></span>
                 <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-neutral-400 [animation-delay:150ms]"></span>
                 <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-neutral-400 [animation-delay:300ms]"></span>
