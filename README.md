@@ -101,7 +101,7 @@ MODEL_NAME=microsoft/DialoGPT-small
 ---
 
 ## App Preview
-![app-preview](docs/screenshots/Screenshot 2026-04-09 195744.png)
+![app-preview](docs/screenshots/Screenshot2026-04-09195744.png)
 
 ---
 
