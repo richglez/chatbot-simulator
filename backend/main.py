@@ -27,8 +27,8 @@ app.add_middleware(
 
 # Cargar modelo y tokenizer al iniciar el servidor
 print("Cargando modelo... esto puede tardar un momento.")
-tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-small")
-model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-small")
+tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-medium")
+model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-medium")
 print("Modelo listo.")
 
 # Historial de conversación (en memoria)
@@ -63,11 +63,11 @@ def chat(message: Message):
         bot_input_ids,
         max_length=1000,
         pad_token_id=tokenizer.eos_token_id,
-        no_repeat_ngram_size=3,
+        no_repeat_ngram_size=3,  # era 3, evita más repeticiones
         do_sample=True,
-        top_k=50,
-        top_p=0.95,
-        temperature=0.75,
+        top_k=50,  # era 50, respuestas más enfocadas
+        top_p=0.95,  # era 0.95, menos aleatoriedad
+        temperature=0.75,  # era 0.75, más coherente
     )
 
     # Decodificar solo la respuesta nueva
