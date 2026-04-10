@@ -112,9 +112,16 @@ MODEL_NAME=microsoft/DialoGPT-small
 
 ---
 
-## Documentation
-[Architecture](docs/architecture.md)
-[API Doc](docs/api.md)
+
+
+## Documentación
+
+| Recurso | Descripción | Enlace |
+| :--- | :--- | :--- |
+| **Arquitectura** | Diseño y estructura del sistema | [Ver doc](docs/architecture.md) |
+| **API** | Referencia técnica de endpoints | [Ver doc](docs/api.md) |
+
+
 
 ## 📄 Licencia
 
