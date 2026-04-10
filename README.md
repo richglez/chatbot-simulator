@@ -10,24 +10,24 @@ A fullstack AI-powered chat simulator built with a custom-trained language model
 | ----------- | ---------------------------------------------- |
 | Frontend    | React + Vite + Tailwind CSS                    |
 | Backend     | Python + FastAPI + Uvicorn                     |
-| IA / Modelo | Hugging Face Transformers + PyTorch + DialoGPT |
+| IA / Model | Hugging Face Transformers + PyTorch + DialoGPT |
 
 ---
 
-## 📁 Estructura del proyecto
+## 📁 Project structure
 
 ```
 chatbot-simulator/
-├── backend/         # API + modelo de IA (Python + FastAPI)
+├── backend/         # API + model de IA (Python + FastAPI)
 ├── backend/         # Documentation App Project (Screenshots, Architecture, API Doc)
-└── frontend/        # UI del chat (React + Vite)
+└── frontend/        # UI chat (React + Vite)
 ```
 
 ---
 
-## ⚙️ Configuración del entorno
+## ⚙️ Environment configuration
 
-### Requisitos previos
+### Prerequisites
 
 - [Python 3.10+](https://www.python.org/downloads/)
 - [Node.js 18+](https://nodejs.org/)
@@ -102,27 +102,26 @@ MODEL_NAME=microsoft/DialoGPT-small
 
 ---
 
-## 📦 Estado del proyecto
+## 📦 Project status
 
-- [x] Estructura base del proyecto
-- [x] Backend con FastAPI funcionando
-- [x] Integración del modelo DialoGPT
-- [x] UI del chat en React
-- [ ] Entrenamiento con datos personalizados
+- [x] Project structure
+- [x] Backend working FastAPI
+- [x] Integration of the DialoGPT model
+- [x] Chat UI in React
+- [ ] Training with personalized data
 
 ---
 
 
 
-## Documentación
+## Documentation
 
-| Recurso | Descripción | Enlace |
+| Resource | Description | Link |
 | :--- | :--- | :--- |
-| **Arquitectura** | Diseño y estructura del sistema | [Ver doc](docs/architecture.md) |
-| **API** | Referencia técnica de endpoints | [Ver doc](docs/api.md) |
+| **Architecture** | System design and structure | [Go](docs/architecture.md) |
+| **API** | Technical reference for endpoints | [Go](docs/api.md) |
 
 
+## 📄 License
 
-## 📄 Licencia
-
-MIT — libre para usar y modificar.
+MIT — free to use and modify.
