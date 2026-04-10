@@ -112,6 +112,10 @@ MODEL_NAME=microsoft/DialoGPT-small
 
 ---
 
+## Documentation
+[Architecture](docs/architecture.md)
+[API Doc](docs/api.md)
+
 ## 📄 Licencia
 
 MIT — libre para usar y modificar.
