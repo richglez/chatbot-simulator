@@ -100,12 +100,17 @@ MODEL_NAME=microsoft/DialoGPT-small
 
 ---
 
+## App Preview
+![app-preview](docs/screenshots/Screenshot2026-04-09195744.png)
+
+---
+
 ## 📦 Estado del proyecto
 
 - [x] Estructura base del proyecto
 - [x] Backend con FastAPI funcionando
-- [ ] Integración del modelo DialoGPT
-- [ ] UI del chat en React
+- [x] Integración del modelo DialoGPT
+- [x] UI del chat en React
 - [ ] Entrenamiento con datos personalizados
 
 ---
