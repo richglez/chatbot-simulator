@@ -11,3 +11,21 @@
   background-size: 200% 200%;
   animation: rotate-gradient 4s linear infinite;
 }
+
+/* Scroll personalizado */
+.custom-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #4ade80, #a855f7);
+  border-radius: 999px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #22c55e, #9333ea);
+}
